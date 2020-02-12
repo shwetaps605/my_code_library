@@ -1,0 +1,16 @@
+def wrap(string, max_width):
+    i=0
+    slist=[]
+    while(i<len(string)):
+        slist.append(string[i:i+max_width])
+        i=i+max_width
+        if len(string)-i < max_width:
+            break
+    slist.append(string[i:])
+
+    return slist
+
+if __name__ == '__main__':
+    string, max_width = raw_input(), int(raw_input())
+    result = wrap(string, max_width)
+    print result
