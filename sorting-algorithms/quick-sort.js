@@ -1,4 +1,11 @@
-
+function randomPartition(array,start,end) {
+    const random = Math.floor(Math.random() * (end - start +1 )) + start;
+    console.log(`random between ${start} and ${end} is=> ${random}`);
+    const temp = array[end];
+    array[end] = array[random];
+    array[random] = temp;
+    return partition(array,start,end);
+}
 function partition(array,start,end) {
     const pivot = array[end];
     console.log("PIVOT ELEMENT", pivot)
@@ -19,7 +26,7 @@ function partition(array,start,end) {
 
 function quickSort(array, start, end) {
     if(start >= end) return;
-    const pIndex = partition(array,start,end);
+    const pIndex = randomPartition(array,start,end);
     quickSort(array,start,pIndex-1);
     quickSort(array,pIndex+1,end);
    
