@@ -14,6 +14,15 @@ public class Main {
         linkedList.display();
         linkedList.insertAtNthPosition(24,2);
         linkedList.display();
+        int removed = linkedList.deleteFirst();
+        System.out.println(removed + " was removed");
+        linkedList.insertFirst(12);
+        linkedList.display();
+        System.out.println(linkedList.deleteLast() + " was removed");
+        linkedList.display();
+        System.out.println(linkedList.deleteFromNthPosition(4) + " was removed");
+        linkedList.display();
+
 
     }
 }
