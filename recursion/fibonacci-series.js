@@ -1,13 +1,10 @@
 //program to find the nth number in the fibonacci series using recursion
 
 function findFibonacci(n) {
-    if(n === 0) return 0
-    if(n === 1) return 1
-    let a = findFibonacci(n-1)
-    let b = findFibonacci(n-2)
-    return a+b;
+    if(n<2) return n;
+    return findFibonacci(n-1)+findFibonacci(n-2);
 }
 
-const input = 5
+const input = 6
 let val = findFibonacci(input)
 console.log(`${input}th fibonacci number is ${val}`)
