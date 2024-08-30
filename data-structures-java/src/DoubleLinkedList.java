@@ -20,12 +20,13 @@ public class DoubleLinkedList {
         Node node = new Node(val);
         node.next = head;
         if(head != null) {
-
+            if(head.next == null) {
+                
+            }
             Node nextNode = head.next;
             nextNode.prev = head;
         }
         head = node;
-        head.prev = null;
         if(tail == null) {
             tail = head;
         }
