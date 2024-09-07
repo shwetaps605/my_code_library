@@ -20,17 +20,14 @@ public class DoubleLinkedList {
         Node node = new Node(val);
         node.next = head;
         if(head != null) {
-            if(head.next == null) {
-                
-            }
-            Node nextNode = head.next;
-            nextNode.prev = head;
+            head.prev = node;
         }
         head = node;
         if(tail == null) {
             tail = head;
         }
-        size+=1;
+        size = size +1;
+        //System.out.println("INSERT FIRST: current size" + size);
     }
 
     public void insertLast(int val) {
@@ -38,29 +35,39 @@ public class DoubleLinkedList {
         tail.next = node;
         node.prev = tail;
         tail = node;
-        size=+1;
+        size = size +1;
+        //System.out.println("INSERT LAST: current size" + size);
     }
 
     public void insertAtNthIndex(int val, int n){
+        System.out.println("index->"+n);
         if(n == 0) {
             insertFirst(val);
+            return;
         }
         if(n == size-1) {
             insertLast(val);
+            return;
         }
         Node node = getNode(n);
         Node newNode = new Node(val);
-        newNode.next = node;
-        newNode.prev = node.prev;
-        node.prev = newNode;
-        size +=1;
+        System.out.println("node returned->"+ node.value);
+        newNode.prev = node;
+        newNode.next = node.next;
+        node.next.prev = newNode;
+        node.next = newNode;
+        size = size + 1;
+        //System.out.println("INSERT NTH: current size" + size);
     }
 
     public Node getNode(int index) {
         if (index == 0) return head;
         if (index == size-1) return tail;
         Node temp = head;
+//        System.out.println("SIZE VALUE IS"+ size);
+//        System.out.println("INDEX VALUE IS"+ index);
         for(int i=1;i<size-1;i++) {
+            //System.out.println("checking "+i);
             if(i == index) {
                 return temp;
             }
@@ -73,7 +80,7 @@ public class DoubleLinkedList {
         int val = head.value;
         head = head.next;
         head.prev = null;
-        size-=1;
+        size = size - 1;
         return val;
     }
 
@@ -81,7 +88,7 @@ public class DoubleLinkedList {
         int val = tail.value;
         tail = tail.prev;
         tail.next = null;
-        size-=1;
+        size = size - 1;
         return val;
     }
 
@@ -98,7 +105,7 @@ public class DoubleLinkedList {
 
         prev.next = next;
         next.prev = prev;
-        size -=1;
+        size = size - 1;
         return node.value;
     }
 
