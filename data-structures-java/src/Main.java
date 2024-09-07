@@ -28,6 +28,22 @@ public class Main {
         DoubleLinkedList dll = new DoubleLinkedList();
         dll.insertFirst(10);
         dll.insertFirst(13);
+        dll.insertFirst(20);
+        dll.insertLast(24);
+        dll.display();
+        dll.insertAtNthIndex(38,3);
+        dll.display();
+        dll.insertAtNthIndex(56,2);
+        dll.insertAtNthIndex(7,5);
+        dll.display();
+
+        System.out.println(dll.deleteFirst() + " was removed");
+        dll.display();
+
+        System.out.println(dll.deleteLast() + " was removed");
+        dll.display();
+
+        System.out.println(dll.deleteFromNthIndex(4) + " was removed");
         dll.display();
 
 
